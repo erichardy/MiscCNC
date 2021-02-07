@@ -53,6 +53,7 @@ G1 X30.0004 Y30.0006 Z-27.0000 F180.0000 S0.0
 G0 Z5.0000
 (finish operation: Pocket_Shape)
 (begin postamble)
+G28
 M05
 G17 G90
 M2
