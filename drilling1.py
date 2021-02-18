@@ -63,6 +63,5 @@ for x in range(0, nbX):
         print("G0 X%i Y%i" % (Xcoord , Ycoord))
         drillCycle()
 
-goToOrigin()
 endPRG()
 
