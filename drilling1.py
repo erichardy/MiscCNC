@@ -1,5 +1,5 @@
 
-
+"""
 deep = 3  # profondeur de perçcage
 clearance = 3  # hauteur au dessus du 0
 
@@ -10,15 +10,15 @@ nbX = 3 # nombre de colones
 nbY = 3 # nombre de lignes
 
 """
-deep = 23  # profondeur de perçcage
+deep = 22  # profondeur de perçcage
 clearance = 3  # hauteur au dessus du 0
 
 offsetX = 100
 offsetY = 100
 
-nbX = 6 # nombre de colones
-nbY = 6 # nombre de lignes
-"""
+nbX = 8 # nombre de colones
+nbY = 7 # nombre de lignes
+
 
 
 def setOrigin():

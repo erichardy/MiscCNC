@@ -2,15 +2,13 @@
 (Post Processor: smoothie_post)
 (Output Time:2021-04-03 09:26:31.287324)
 (begin preamble)
-G17 G90
+G90
 G21
 (begin operation: Fixture)
 G54
 (finish operation: Fixture)
 (begin operation: TC: 5mm Endmill)
 (TC: 5mm Endmill)
-M6 T1.0
-M3 S0.0
 (finish operation: TC: 5mm Endmill)
 (begin operation: DressupTag)
 G0 Z5.0000
@@ -120,6 +118,4 @@ G2 X1.8787 Y1.8787 Z-9.0000 I0.0000 J3.0000 S0.0
 G0 X1.8787 Y1.8787 Z5.0000
 (finish operation: DressupTag)
 (begin postamble)
-M05
-G17 G90
-M2
+G90
