@@ -1,0 +1,306 @@
+# ==eMotion Tech I3 MetalMotion==
+  ___  ____  __  __       _          _   __  __       _    _            
+ |_ _||__ / |  \/  | ___ | |_  __ _ | | |  \/  | ___ | |_ |_| ___  _ _  
+  | |  |_ \ | |\/| |/ -_)|  _|/ _` || | | |\/| |/ _ \|  _|| |/ _ \| ' \ 
+ |___||___/ |_|  |_|\___| \__|\__,_||_| |_|  |_|\___/ \__||_|\___/|_||_|
+
+#
+# Fichier de configuration des entrees sorties de la carte eMotronic
+# Pour toutes questions supplementaires, vous pouvez nous contacter 
+# a l'adresse email ci-dessous.
+# 
+# ATTENTION: Il est extremement deconseille de modifier ce fichier !!!
+# Ne modifiez ce fichier que si vous savez exactement ce que vous faites.
+# A partir du moment ou vous modifiez ce fichier vous sortez de 
+# l'utilisation usuelle de votre MicroDelta Rework. Le support client ne 
+# sera plus en mesure de vous guider plus a partir ce cette modification.
+#
+# Re-telechargez le fichier sur notre section support si vous avez un doute
+# sur l'integrite du fichier.
+#
+# =======================
+# This is the configuration file dedicated to the eMotronic board.
+# Feel free to ask or give us any feedback to the email below:
+#
+# WARNING: Please do not modify this file except if you know exactly what you are doing.
+# Please understand that our support will not accompagny you to thoses modifications.
+# 
+# =======================
+# Email : contact [at] eMotion-tech [point] com
+# =======================
+
+
+version_name             V1.0g
+
+# NOTE Lines must not exceed 132 characters
+
+## Robot module configurations : general handling of movement G-codes and slicing into moves
+default_feed_rate                            650             # Default rate ( mm/minute ) for G1/G2/G3 moves
+default_seek_rate                            650             # Default rate ( mm/minute ) for G0 moves
+mm_per_arc_segment                           0.0              # Arcs are cut into segments ( lines ), this is the length for
+mm_max_arc_error                             0.01             # The maximum error for line segments that divide arcs 0 to 
+                                                              # disable these segments.  Smaller values mean more resolution,
+                                                              # higher values mean faster computation
+#mm_per_line_segment                         5                 # Lines can be cut into segments ( not usefull with cartesian
+ 
+
+
+play_led_disable	true # a conserver absolument
+
+# alpha_steps_per_mm                           80               # Steps per mm for alpha stepper
+alpha_steps_per_mm                           800               # Steps per mm for alpha stepper
+# beta_steps_per_mm                            80               # Steps per mm for beta stepper
+beta_steps_per_mm                            800               # Steps per mm for beta stepper
+gamma_steps_per_mm                           666             # Steps per mm for gamma stepper
+
+arm_solution                                 cartesian
+
+# Planner module configuration : Look-ahead and acceleration configuration
+planner_queue_size                           32               # DO NOT CHANGE THIS UNLESS YOU KNOW EXACTLY WHAT YOU ARE DOING
+acceleration                                 1500             # Acceleration in mm/second/second.
+junction_deviation                           0.03             # Similar to the old "max_jerk", in millimeters,
+                                                              # see https://github.com/grbl/grbl/blob/master/planner.c
+                                                              # and https://github.com/grbl/grbl/wiki/Configuring-Grbl-v0.8
+                                                              # Lower values mean being more careful, higher values means being
+                                                              # faster and have more jerk
+#z_junction_deviation                        0.0              # for Z only moves, -1 uses junction_deviation, zero disables 
+                                                              # junction_deviation on z moves DO NOT SET ON A DELTA
+#minimum_planner_speed                       0.0              # sets the minimum planner speed in mm/sec
+z_acceleration                               300              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default.
+# z_acceleration                               0              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default.
+
+
+# Stepper module configuration
+microseconds_per_step_pulse                  1                # Duration of step pulses to stepper drivers, in microseconds
+base_stepping_frequency                      100000           # Base frequency for stepping
+
+# Cartesian axis speed limits
+x_axis_max_speed                             650	          # mm/min (previous : 9000)
+y_axis_max_speed                             650            # mm/min (previous : 9000)
+z_axis_max_speed                             180              # mm/min
+
+# Stepper module pins ( ports, and pin numbers, appending "!" to the number will invert a pin )
+# alpha_step_pin                               2.0              # Pin for alpha stepper step signal
+# alpha_dir_pin                                3.26!             # Pin for alpha stepper direction, add '!' to reverse direction
+# alpha_en_pin                                 3.25             # Pin for alpha enable pin
+# alpha_max_rate                               9000.0          # Maximum rate in mm/min
+
+# new config for alpha as the controler doesn't work properly... or the alpha_dir_pin above is wrong
+# step pin are reversed because AOP (used as comparator) beetween eMotronic and DM542 reverses signals 
+# So, using motor 2 : X-axis
+alpha_step_pin                               2.1!              # Pin for alpha stepper step signal
+alpha_dir_pin                                0.22!             # Pin for alpha stepper direction, add '!' to reverse direction
+alpha_en_pin                                 0.21             # Pin for alpha enable pin
+alpha_max_rate                               9000.0          # Maximum rate in mm/min
+
+# motor 3 : Y-axis
+beta_step_pin                                2.2!              # Pin for beta stepper step signal
+beta_dir_pin                                 4.28!            # Pin for beta stepper direction, add '!' to reverse direction
+beta_en_pin                                  4.29             # Pin for beta enable
+beta_max_rate                                2000.0          # Maxmimum rate in mm/min
+
+# motor 4 Z-axis
+gamma_step_pin                               2.3!              # Pin for gamma stepper step signal
+gamma_dir_pin                                0.4            # Pin for gamma stepper direction, add '!' to reverse direction
+gamma_en_pin                                 0.3             # Pin for gamma enable
+gamma_max_rate                               9000.0            # Maximum rate in mm/min
+
+
+
+
+
+## System configuration
+# Serial communications configuration ( baud rate defaults to 9600 if undefined )
+# uart0.baud_rate                              115200           # Baud rate for the default hardware serial port
+uart0.baud_rate                              9600           # Baud rate for the default hardware serial port
+second_usb_serial_enable                     false            # This enables a second usb serial port (to have both pronterface
+
+
+## Extruder module configuration
+# extruder.hotend.enable                       true             # Whether to activate the extruder module at all. All configuration is ignored if false
+extruder.hotend.enable                       false             # Whether to activate the extruder module at all. All configuration is ignored if false
+extruder.hotend.steps_per_mm                 163              # Steps per mm for extruder stepper
+extruder.hotend.default_feed_rate            600              # Default rate ( mm/minute ) for moves where only the extruder moves
+extruder.hotend.acceleration                 500              # Acceleration for the stepper motor mm/sec²
+extruder.hotend.max_speed                    35               # mm/s
+
+extruder.hotend.step_pin                     2.8               # Pin for extruder step signal
+extruder.hotend.dir_pin                      0.20              # Pin for extruder dir signal
+extruder.hotend.en_pin                       0.19              # Pin for extruder enable signal
+
+
+
+
+## Temperature control configuration
+# First hotend configuration
+# temperature_control.hotend.enable            true             # Whether to activate this ( "hotend" ) module at all.
+temperature_control.hotend.enable            false             # Whether to activate this ( "hotend" ) module at all.
+temperature_control.hotend.thermistor_pin    0.24             # Pin for the thermistor to read
+temperature_control.hotend.heater_pin        2.6              # Pin that controls the heater, set to nc if a readonly thermistor is being defined
+temperature_control.hotend.thermistor        RRRF100K        # See http://smoothieware.org/temperaturecontrol#toc5
+temperature_control.hotend.set_m_code        104              # M-code to set the temperature for this module
+temperature_control.hotend.set_and_wait_m_code 109            # M-code to set-and-wait for this module
+temperature_control.hotend.designator        T                # Designator letter for this module
+temperature_control.hotend.max_temp         300               # Set maximum temperature - Will prevent heating above 300 by default
+temperature_control.hotend.p_factor         13.7              # P ( proportional ) factor
+temperature_control.hotend.i_factor         0.097             # I ( integral ) factor
+temperature_control.hotend.d_factor         24                # D ( derivative ) factor
+#temperature_control.hotend.max_pwm          64               # Max pwm, 64 is a good value if driving a 12v resistor with 24v.
+#temperature_control.hotend.runaway_range     5               # Safety temperature gap between target and result
+temperature_control.hotend.runaway_heating_timeout 0
+
+# temperature_control.bed.enable               true             # Whether to activate this ( "hotend" ) module at all.
+temperature_control.bed.enable               false             # Whether to activate this ( "hotend" ) module at all.
+temperature_control.bed.thermistor_pin       0.23             # Pin for the thermistor to read
+temperature_control.bed.heater_pin           2.4              # Pin that controls the heater
+temperature_control.bed.thermistor           RRRF100K         # See http://smoothieware.org/temperaturecontrol#thermistor
+temperature_control.bed.set_m_code           140              # M-code to set the temperature for this module
+temperature_control.bed.set_and_wait_m_code  190              # M-code to set-and-wait for this module
+temperature_control.bed.designator           B                # Designator letter for this module
+#temperature_control.bed.max_pwm              160               # Max pwm, 64 is a good value if driving a 12v resistor with 24v.
+temperature_control.bed.p_factor             13.7             # permanently set the PID values after an auto pid
+temperature_control.bed.i_factor             0.097              #
+temperature_control.bed.d_factor             24              #
+#temperature_control.bed.runaway_range        10              # Safety temperature gap between target and result
+temperature_control.bed.runaway_heating_timeout 0
+
+
+## Switch module for fan control
+# switch.fan.enable                            true             #
+switch.fan.enable                            false             #
+switch.fan.input_on_command                  M106             #
+switch.fan.input_off_command                 M107             #
+switch.fan.output_pin                        2.11             #
+switch.fan.output_type                       pwm              # pwm output settable with S parameter in the input_on_comand
+switch.fan.max_pwm                           255              # && set max pwm for the pin default is 255
+
+# switch.fan_extruder.enable                   true             #
+switch.fan_extruder.enable                   false             #
+switch.fan_extruder.output_pin               2.13             #
+switch.fan_extruder.output_type              pwm              # just an on or off pin
+#switch.fan_extruder.max_pwm                 180              #
+switch.fan_extruder.startup_value	         255              #
+switch.fan_extruder.startup_state	         true             #
+switch.fan_extruder.ignore_on_halt           true             #
+
+
+
+
+## Endstops
+# endstops_enable                              true             # The endstop module is enabled by default and can be disabled here
+endstops_enable                              false             # The endstop module is enabled by default and can be disabled here
+alpha_limit_enable                           false
+alpha_min_endstop                            nc               # add a ! to invert if endstop is NO connected to ground
+alpha_max_endstop                            1.22!            # Pin to read max endstop, uncomment this and comment the above if using max endstops
+alpha_homing_direction                       home_to_max      # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
+alpha_min                                    0                # This gets loaded as the current position after homing when home_to_min is set
+alpha_max                                    200              # This gets loaded as the current position after homing when home_to_max is set
+beta_limit_enable                            false
+beta_min_endstop                             nc               #
+beta_max_endstop                             1.23!            # Pin to read max endstop, uncomment this and comment the above if using max endstops
+beta_homing_direction                        home_to_max      # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
+beta_min                                     0                # This gets loaded as the current position after homing when home_to_min is set
+beta_max                                     200              # This gets loaded as the current position after homing when home_to_max is set
+gamma_min_endstop                            nc               #
+gamma_max_endstop                            1.24!^           # Pin to read max endstop, uncomment this and comment the above if using max endstops
+gamma_homing_direction                       home_to_max      # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
+gamma_min                                    0                # This gets loaded as the current position after homing when home_to_min is set
+gamma_max                                    210              # This gets loaded as the current position after homing when home_to_max is set
+gamma_limit_enable                           true
+gamma_homing_retract_mm                      1
+
+endstop_debounce_count	100
+
+# Endstops home at their fast feedrate first, then once the endstop is found they home again at their slow feedrate for accuracy
+alpha_fast_homing_rate_mm_s                  50               # Alpha/X fast homing feedrate in mm/second
+alpha_slow_homing_rate_mm_s                  20               # Alpha/X slow homing feedrate in mm/second
+beta_fast_homing_rate_mm_s                   50               # Beta/Y  fast homing feedrate in mm/second
+beta_slow_homing_rate_mm_s                   20               # Beta/Y  slow homing feedrate in mm/second
+gamma_fast_homing_rate_mm_s                  10               # Gamma/Z fast homing feedrate in mm/second
+gamma_slow_homing_rate_mm_s                  5                # Gamma/Z slow homing feedrate in mm/second
+
+alpha_homing_retract_mm                      5                # Distance to retract from the endstop after it is hit for alpha/X
+beta_homing_retract_mm                       5                # Distance to retract from the endstop after it is hit for beta/Y
+gamma_homing_retract_mm                      5                # Distance to retract from the endstop after it is hit for gamma/Z
+homing_order                                 ZXY              # X axis followed by Y then Z last
+
+
+## Z-probe
+# zprobe.enable                                true           # Set to true to enable a zprobe
+zprobe.enable                                false           # Set to true to enable a zprobe
+zprobe.probe_pin                             0.26!^          # Pin probe is attached to, if NC remove the !
+zprobe.slow_feedrate                         5               # Mm/sec probe feed rate
+#zprobe.debounce_count                       100             # Set if noisy
+zprobe.fast_feedrate                         100             # Move feedrate mm/sec
+zprobe.probe_height                          5               # How much above bed to start probe
+
+# leveling-strategy.rectangular-grid.enable               true        # The strategy must be enabled in the config, as well as the zprobe module.
+leveling-strategy.rectangular-grid.enable               false        # The strategy must be enabled in the config, as well as the zprobe module.
+leveling-strategy.rectangular-grid.x_size               200         # size of bed in the X axis
+leveling-strategy.rectangular-grid.y_size               200         # size of bed in the Y axis
+leveling-strategy.rectangular-grid.do_home              true
+leveling-strategy.rectangular-grid.size                 7 	        # The size of the grid, for example, 7 causes a 7x7 grid with 49 points. 
+																	# Must be an odd number.
+leveling-strategy.rectangular-grid.probe_offsets        0,0,0      # Optional probe offsets from the nozzle or tool head
+leveling-strategy.rectangular-grid.save                 true        # If the saved grid is to be loaded on boot then this must be set to true
+leveling-strategy.rectangular-grid.initial_height       55          # where to stop the fast decent before it probes, this should be 
+leveling-strategy.rectangular-grid.human_readable		true		#Human readable formatting of probe table				
+
+
+
+
+## Panel
+
+
+###########
+# DISPLAY #
+###########
+
+# panel.enable                true                              # set to true to enable the panel code
+panel.enable                false                              # set to true to enable the panel code
+panel.lcd                   viki2                             # set type of panel. AZSMZ 12864 LCD is similar viki2, also set to viki2.
+panel.spi_channel           0                                 # set spi channel to use P0_18,P0_15 MOSI,SCLK
+panel.spi_cs_pin            0.1                               # set spi chip select
+panel.encoder_a_pin         1.26!^                            # encoder pin
+panel.encoder_b_pin         1.28!^                            # encoder pin
+panel.click_button_pin      0.11!^                            # click button
+panel.a0_pin                1.29                              # st7565 needs an a0
+panel.contrast              38                                # some panels need contrast set, 38 for eMotronic LCD 19 AZSMZ 12864 LCD
+panel.encoder_resolution    4                                 # number of clicks to move 1 item
+panel.buzz_pin              0.10                              # pin for buzzer (use red led OR buzzer not both)
+panel.menu_offset           0                                 # some panels will need 1 here
+panel.reverse               1
+panel.expert_mode 	    false
+panel.preheat_pla_hotend	195
+panel.preheat_pla_bed		55
+panel.preheat_abs_hotend	245
+panel.preheat_abs_bed		90
+panel.preheat_gfil_hotend	230
+panel.preheat_gfil_bed		70
+panel.alpha_jog_feedrate    2000
+panel.beta_jog_feedrate    2000
+panel.gamma_jog_feedrate    100
+
+kill_button_enable			    false	                            # Enable the "kill" button
+kill_button_pin			        0.0^!	                            # Pin for the "kill" button
+
+
+# setup for external sd card on the LCD board
+# panel.external_sd                 true                        # set to true if there is an extrernal sdcard on the panel
+panel.external_sd                 false                        # set to true if there is an extrernal sdcard on the panel
+panel.external_sd.spi_channel     0                           # set spi channel the sdcard is on
+panel.external_sd.spi_cs_pin      0.16                        # set spi chip select for the sdcard
+panel.external_sd.sdcd_pin        1.31!^                      # sd detect signal (set to nc if no sdcard detect)
+
+ws2812b_module_enable            false
+
+
+
+## Suspend mode
+# settings for filament change or just pause the printing
+
+
+after_suspend_gcode		G91_G0E-5_G0Z10_G90_G0X0Y0Z198
+
+leave_heaters_on_suspend	true
+network.enable false

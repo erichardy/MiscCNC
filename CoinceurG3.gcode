@@ -2,15 +2,9 @@
 (Post Processor: smoothie_post)
 (Output Time:2021-04-03 11:32:01.727028)
 (begin preamble)
-G17 G90
+G90
 G21
 (begin operation: Fixture)
-G54
-(finish operation: Fixture)
-(begin operation: TC: 5mm Endmill)
-(TC: 5mm Endmill)
-M6 T1.0
-M3 S0.0
 (begin operation: Profile001)
 (Profile001)
 (Compensated Tool Path. Diameter: 6.0)
@@ -67,6 +61,3 @@ G0 Z5.0000
 G0 Z5.0000
 (finish operation: Profile001)
 (begin postamble)
-M05
-G17 G90
-M2
