@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CADFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="0.9.8.0" Name="gabari20-35-50--100">
+  <layers>
+    <layer name="Default" color="127,255,0">
+      <objects>
+        <text id="9" p1="32,172,0" Height="20" Font="Courier 10 Pitch" align="bottom,left">
+          <ModificationCount>2</ModificationCount>
+          <mat m="Identity" />50mm</text>
+        <text id="21" p1="138.927734375,154.26953125,0" p2="106.927734375,-17.73046875,0" Height="20" Font="Courier 10 Pitch" align="bottom,left">
+          <ModificationCount>6</ModificationCount>
+          <mat m="Identity" />100mm</text>
+        <text id="29" p1="167.705078125,19.416015625,0" p2="135.705078125,-152.583984375,0" Height="20" Font="Courier 10 Pitch" align="bottom,left">
+          <ModificationCount>8</ModificationCount>
+          <mat m="Identity" />35mm</text>
+        <text id="36" p1="12.974609375,12.34375,0" p2="-19.025390625,-159.65625,0" Height="20" Font="Courier 10 Pitch" align="bottom,left">
+          <ModificationCount>0</ModificationCount>
+          <mat m="Identity" />20mm</text>
+        <pline id="8">
+          <ModificationCount>1</ModificationCount>
+          <mat m="Identity" />
+          <pts>
+            <p>200,35,0</p>
+            <p b="0.41421356405853443">200,100.000001726335,0</p>
+            <p>99.9999976982201,200,0</p>
+            <p b="0.41421356237309503">50,200,0</p>
+            <p>0,150,0</p>
+            <p>0,100.00000115089,0</p>
+            <p b="0.26794919243112236">0,20,0</p>
+            <p b="0.13165249758739592">9.99999999999999,2.67949192431123,0</p>
+            <p>20,0,0</p>
+            <p>100,0,0</p>
+            <p b="0.414213562373095">165,0,0</p>
+            <p>200,35,0</p>
+          </pts>
+        </pline>
+      </objects>
+      <ModificationCount>0</ModificationCount>
+    </layer>
+  </layers>
+  <MachiningOptions>
+    <Stock>
+      <PMin>0,0</PMin>
+      <PMax>0,0</PMax>
+      <Color>255,165,0</Color>
+    </Stock>
+    <ToolProfile>Unspecified</ToolProfile>
+  </MachiningOptions>
+  <parts>
+    <part Name="Part1">
+      <machineops>
+        <profile Enabled="true">
+          <TargetDepth state="Value">-10</TargetDepth>
+          <DepthIncrement state="Default">0.4</DepthIncrement>
+          <FinalDepthIncrement state="Default">0</FinalDepthIncrement>
+          <CutOrdering state="Default">DepthFirst</CutOrdering>
+          <CutWidth state="Default">0</CutWidth>
+          <StepOver state="Default">0.4</StepOver>
+          <StepoverFeedrate state="Default">Plunge Feedrate</StepoverFeedrate>
+          <InsideOutside state="Default">Outside</InsideOutside>
+          <MillingDirection state="Default">Conventional</MillingDirection>
+          <CollisionDetection state="Default">True</CollisionDetection>
+          <CornerOvercut state="Default">False</CornerOvercut>
+          <LeadInMove state="Default">
+            <LeadInType>Spiral</LeadInType>
+            <SpiralAngle>0</SpiralAngle>
+            <TangentRadius>0</TangentRadius>
+            <LeadInFeedrate>0</LeadInFeedrate>
+          </LeadInMove>
+          <LeadOutMove state="Default" />
+          <HoldingTabs state="Default">
+            <TabMethod>Automatic</TabMethod>
+            <Width>1.5</Width>
+            <Height>1.5</Height>
+            <MinimumTabs>3</MinimumTabs>
+            <MaximumTabs>6</MaximumTabs>
+            <TabDistance>30</TabDistance>
+            <SizeThreshold>15</SizeThreshold>
+            <UseLeadIns>False</UseLeadIns>
+            <TabStyle>Triangle</TabStyle>
+          </HoldingTabs>
+          <SideProfile state="Default" />
+          <StockSurface state="Default">0</StockSurface>
+          <RoughingClearance state="Default">0</RoughingClearance>
+          <ClearancePlane state="Default">3</ClearancePlane>
+          <SpindleDirection state="Default">CW</SpindleDirection>
+          <SpindleSpeed state="Default">1000</SpindleSpeed>
+          <SpindleRange state="Default">0</SpindleRange>
+          <VelocityMode state="Default">Undefined</VelocityMode>
+          <primitive>
+            <prim>8</prim>
+          </primitive>
+          <Style>cutout+tabs</Style>
+          <WorkPlane state="Default">XY</WorkPlane>
+          <OptimisationMode state="Default">Experimental</OptimisationMode>
+          <RoughingFinishing state="Default">Roughing</RoughingFinishing>
+          <ToolDiameter state="Value">6</ToolDiameter>
+          <ToolNumber state="Default">0</ToolNumber>
+          <ToolProfile state="Default">Unspecified</ToolProfile>
+          <PlungeFeedrate state="Default">300</PlungeFeedrate>
+          <CutFeedrate state="Default">800</CutFeedrate>
+          <MaxCrossoverDistance state="Default">0.7</MaxCrossoverDistance>
+          <StartPoint state="Value">0,0,0</StartPoint>
+          <CustomMOPHeader state="Value" />
+          <CustomMOPFooter state="Default" />
+          <Name>Contour1</Name>
+        </profile>
+      </machineops>
+      <Stock>
+        <PMin>0,0</PMin>
+        <PMax>0,0</PMax>
+        <Color>255,165,0</Color>
+      </Stock>
+      <Nesting>
+        <BasePoint />
+        <NestMethod>None</NestMethod>
+      </Nesting>
+    </part>
+  </parts>
+  <ActiveLayer>Default</ActiveLayer>
+  <ActivePart>Part1</ActivePart>
+</CADFile>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CADFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="0.9.8.0" Name="StikFonts">
+  <layers>
+    <layer name="Default" color="127,255,0">
+      <objects>
+        <text id="1" p1="10,50,0" Height="10" Font="1CamBam_Stick_1" align="bottom,left">
+          <ModificationCount>0</ModificationCount>
+          <mat m="Identity" />1CamBam_Stick_1.ttf</text>
+        <text id="2" p1="11,40,0" Height="10" Font="1CamBam_Stick_2" align="bottom,left">
+          <ModificationCount>0</ModificationCount>
+          <mat m="Identity" />1CamBam_Stick_2.ttf</text>
+        <text id="3" p1="12,29,0" Height="10" Font="1CamBam_Stick_3" align="bottom,left">
+          <ModificationCount>0</ModificationCount>
+          <mat m="Identity" />1CamBam_Stick_3.ttf</text>
+      </objects>
+      <ModificationCount>0</ModificationCount>
+    </layer>
+  </layers>
+  <MachiningOptions>
+    <Stock>
+      <PMin>0,0</PMin>
+      <PMax>0,0</PMax>
+      <Color>255,165,0</Color>
+    </Stock>
+    <ToolProfile>Unspecified</ToolProfile>
+  </MachiningOptions>
+  <parts />
+  <ActiveLayer>Default</ActiveLayer>
+</CADFile>
